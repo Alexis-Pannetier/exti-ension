@@ -8,11 +8,7 @@ const Popup = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        <header className="App-header">
-          <Layout />
-        </header>
-      </div>
+      <Layout />
     </ThemeProvider>
 
   );

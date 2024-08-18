@@ -20,7 +20,7 @@ export default function Links() {
     );
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: "row", justifyContent: 'center' }}>
+        <Box>
             <List>
                 {linksItems}
             </List>

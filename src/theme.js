@@ -17,13 +17,28 @@ export const theme = createTheme({
         MuiListItemButton: {
             styleOverrides: {
                 root: {
+                    textAlign: "center",
+                    padding: 3,
+                    m: 1,
+                    // fontFamily: "roboto",
+                    // fontWeight: 900,
                     variants: [
                         {
                             props: { color: 'primary' },
                             style: {
-                                borderRadius: 2,
+                                color: colorPalette.primary.main,
+                                backgroundColor: colorPalette.white.main,
+                                '&:hover': {
+                                    color: colorPalette.white.main,
+                                    backgroundColor: colorPalette.primary.main
+                                }
+                            },
+                        },
+                        {
+                            props: { color: 'secondary' },
+                            style: {
+                                color: colorPalette.white.main,
                                 backgroundColor: colorPalette.primary.main,
-                                fontWeight: 900,
                                 '&:hover': {
                                     color: colorPalette.primary.main,
                                     backgroundColor: colorPalette.white.main

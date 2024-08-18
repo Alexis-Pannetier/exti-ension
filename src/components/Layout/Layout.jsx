@@ -70,7 +70,6 @@ export default function Layout(props) {
     const { children } = props;
     const [open, setOpen] = React.useState(false);
     const [content, setContent] = React.useState(<EChat />);
-    // const [content, setContent] = React.useState(<EChat />);
 
     const handleItemClick = (content) => {
         setContent(content);
@@ -81,10 +80,10 @@ export default function Layout(props) {
     };
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box className="App" sx={{ display: 'flex', p: 0, m: 0, height: "100%", width: "100%" }}>
             <CssBaseline />
             <Drawer variant="permanent" open={open}>
-                <IconButton onClick={handleOpen} size="small" sx={{ padding: 0.5 }}>
+                <IconButton onClick={handleOpen} size="small" sx={{ borderRadius: 0, padding: 0.5 }}>
                     {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                 </IconButton>
                 <Divider />
@@ -115,7 +114,7 @@ export default function Layout(props) {
                 </List>
                 <Divider />
             </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
+            <Box component="main" sx={{ flexGrow: 1 }}>
                 {content}
             </Box>
         </Box >
