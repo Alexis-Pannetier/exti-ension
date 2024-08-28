@@ -1,6 +1,6 @@
 import React from 'react';
 import './Options.css';
-import EChat from '../../components/EChat/EChat';
+import EChatEdit from '../../components/EChat/EChatEdit';
 import { Box, Typography } from '@mui/material';
 
 const Options = ({ title }) => {
@@ -9,7 +9,7 @@ const Options = ({ title }) => {
       <Typography variant="h2" >
         {title} page
       </Typography>
-      <EChat isOptions />
+      <EChatEdit />
     </Box>
   </div>;
 };

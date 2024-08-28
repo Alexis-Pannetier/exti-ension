@@ -11,10 +11,10 @@ const linksItemsData = [
 export default function Links() {
     const theme = useTheme();
 
-    const linksItems = linksItemsData.map(item =>
-        <ListItem >
+    const linksItems = linksItemsData.map((item, index) =>
+        <ListItem key={index}>
             <ListItemButton target="_blank" href={item.link} color={'primary'}>
-                <ListItemText primary={item.name} bold />
+                <ListItemText primary={item.name} />
             </ListItemButton>
         </ListItem>
     );

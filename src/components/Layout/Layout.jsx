@@ -12,17 +12,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { Link, SmartToy } from '@mui/icons-material';
 import './Layout.css';
-import Links from '../Links/Links';
-import EChat from '../EChat/EChat';
 
 const drawerWidth = 125;
-
-const menuItems = [
-    { name: "Liens", icon: <Link />, content: <Links />, openContent: "usefull-link" },
-    { name: "E-chat", icon: <SmartToy />, content: <EChat />, openContent: " " }
-]
 
 const openedMixin = (theme) => ({
     width: drawerWidth,
@@ -42,13 +34,6 @@ const closedMixin = (theme) => ({
     width: `calc(${theme.spacing(4)} + 1px)`,
 });
 
-const DrawerHeader = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    // justifyContent: 'flex-end',
-    padding: theme.spacing(0.5, 0.5),
-}));
-
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
         width: drawerWidth,
@@ -67,9 +52,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function Layout(props) {
-    const { children } = props;
+    const { children, defaultcontent, menu } = props;
     const [open, setOpen] = React.useState(false);
-    const [content, setContent] = React.useState(<EChat />);
+    const [content, setContent] = React.useState(defaultcontent);
 
     const handleItemClick = (content) => {
         setContent(content);
@@ -88,7 +73,7 @@ export default function Layout(props) {
                 </IconButton>
                 <Divider />
                 <List>
-                    {menuItems.map((item, index) => (
+                    {menu.map((item, index) => (
                         <ListItem key={item.name} disablePadding sx={{ display: 'block' }}>
                             <ListItemButton
                                 onClick={() => { handleItemClick(item.content) }}
