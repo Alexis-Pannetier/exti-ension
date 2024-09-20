@@ -1,16 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Box from '@mui/material/Box';
-import { useTheme } from '@emotion/react';
 import { Divider, IconButton, Input, List, ListItem } from '@mui/material';
 import { Add, Delete } from '@mui/icons-material';
-import { getStorage, setStorage } from '../../pages/Content';
+import { getStorage, setStorage } from '../../services/storage';
 
-export default function EChatEdit(props) {
-    const theme = useTheme();
+export default function EChatEdit() {
     const newItemName = useRef();
     const newItemValue = useRef();
     const [items, setItems] = useState([]);
-    const noItems = !items?.length > 0;
 
     useEffect(() => {
         getStorage("e-chat-items").then((data) => {
@@ -30,7 +27,6 @@ export default function EChatEdit(props) {
             timestamp: Date.now(),
             value: newItemValue.current.value
         };
-        console.log("items", items);
         const newItems = [...items, newItem];
         setStorage("e-chat-items", newItems).then(() => {
             newItemName.current.value = "";
@@ -40,7 +36,6 @@ export default function EChatEdit(props) {
 
     return (
         <Box >
-
             <List dense >
                 <ListItem key="new"
                     secondaryAction={
@@ -72,9 +67,7 @@ export default function EChatEdit(props) {
                             <Input value={item.value} multiline />
                         </Box>
                     </ListItem>)}
-
             </List>
-
         </Box >
     );
 }

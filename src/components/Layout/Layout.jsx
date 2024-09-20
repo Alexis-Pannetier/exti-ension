@@ -52,7 +52,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function Layout(props) {
-    const { children, defaultcontent, menu } = props;
+    const { defaultcontent, menu } = props;
     const [open, setOpen] = React.useState(false);
     const [content, setContent] = React.useState(defaultcontent);
 

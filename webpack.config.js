@@ -48,6 +48,9 @@ var options = {
   chromeExtension: {
     notHotReload: ['background', 'contentScript', 'devtools'],
   },
+  experiments: {
+    topLevelAwait: true
+  },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'build'),

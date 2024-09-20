@@ -13,7 +13,7 @@ const Popup = () => {
     <ThemeProvider theme={theme}>
       <Layout menu={[
         { name: "Liens", icon: <Link />, content: <Links /> },
-        { name: "E-chat", icon: <SmartToy />, content: <EChatViewer /> }
+        { name: "IA", icon: <SmartToy />, content: <EChatViewer /> }
       ]}
         defaultcontent={<EChatViewer />} />
     </ThemeProvider>

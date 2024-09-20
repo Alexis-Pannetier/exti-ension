@@ -1,22 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import { useTheme } from '@emotion/react';
 import { IconButton, Link, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { Settings } from '@mui/icons-material';
-import { getStorage } from '../../pages/Content';
-import fetchBase from '../../services/fetch-base';
-
-async function getCurrentTab() {
-    return await chrome.tabs.query({ active: true });
-}
-
-async function getCurrentTabContent() {
-    const [tab] = await getCurrentTab();
-    const url = tab.url;
-    return fetchBase(url).catch(error => {
-        console.error('Erreur:', error);
-    });
-}
+import { getStorage } from '../../services/storage';
+import { scrap } from '../../services/scraping';
 
 export default function EChatViewer(props) {
     const theme = useTheme();
@@ -30,19 +18,15 @@ export default function EChatViewer(props) {
         });
     });
 
-    const handleListItemClick = (item) => {
-        getCurrentTabContent().then((d) => {
-            console.log(d);
-            // console.log(d);
-        });
+    const handleListItemClick = async (item) => {
+        const context = await scrap();
+        console.log("context", context);
+        // TODO : call API service to request ChatGPT with context
     }
 
     const handleEditClick = () => {
-        if (chrome.runtime.openOptionsPage) {
-            chrome.runtime.openOptionsPage();
-        } else {
-            window.open(chrome.runtime.getURL('options.html'));
-        }
+        if (!chrome.runtime.openOptionsPage) window.open(chrome.runtime.getURL('options.html'));
+        chrome.runtime.openOptionsPage();
     }
 
     const editButton = <IconButton aria-label="edit" color="white"
@@ -60,7 +44,7 @@ export default function EChatViewer(props) {
 
             <List dense >
                 {items?.map((item, index) =>
-                    <ListItem key={index}>
+                    <ListItem id="test" key={index}>
                         <ListItemButton key={index} onClick={() => handleListItemClick(item)} color="primary">
                             <ListItemText primary={item.name} />
                         </ListItemButton>

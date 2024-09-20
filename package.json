@@ -19,6 +19,7 @@
     "@fontsource/roboto": "^5.0.14",
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
+    "openai": "^4.62.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "standard-changelog": "^6.0.0"
@@ -64,5 +65,8 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1",
     "zip-webpack-plugin": "^4.0.1"
+  },
+  "browser": {
+    "crypto": false
   }
 }
