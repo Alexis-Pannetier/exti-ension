@@ -8,7 +8,7 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "icon-34.png"
+    "default_icon": "icon-128.png"
   },
   "permissions": [
     "activeTab",
@@ -16,8 +16,9 @@
     "storage"
   ],
   "icons": {
+    "34": "icon-128.png",
     "128": "icon-128.png",
-    "34": "icon-34.png"
+    "256": "extia-256.jpg"
   },
   "content_scripts": [
     {
@@ -40,7 +41,7 @@
       "resources": [
         "content.styles.css",
         "icon-128.png",
-        "icon-34.png"
+        "extia-256.jpg"
       ],
       "matches": []
     }

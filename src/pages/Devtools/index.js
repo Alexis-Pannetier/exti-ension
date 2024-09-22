@@ -1,5 +1,5 @@
 chrome.devtools.panels.create(
   'Dev Tools from exti-ension',
-  'icon-34.png',
+  'icon-128.png',
   'panel.html'
 );
